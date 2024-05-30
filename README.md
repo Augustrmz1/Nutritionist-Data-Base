@@ -2,10 +2,17 @@
 
 ## Project Description
 
-This project aims to create a client database system for a nutritionist. The system will allow the registration and management of patient information, including name, age, weight, height, body fat percentage, and relevant dates. This tool will help the nutritionist maintain a detailed and organized record of their patients, facilitating the tracking of progress and decision-making based on data.
+This project aims to create a client database system for a nutritionist. The system will manage a database of 20 patients classified into the following categories: athletes, adults, children, and overweight patients. Each category will have specific methods tailored for more personalized consultations. A superclass, Patient, will contain general methods that will serve as the base for all subclasses through inheritance and polymorphism. This tool will help the nutritionist maintain a detailed and organized record of their patients, facilitating the tracking of progress and decision-making based on data.
 
 ## Features
 
+- **Patient Classification:** Patients are categorized into four groups:
+  - Athletes
+  - Adults
+  - Children
+  - Overweight Patients
+- **Superclass Patient:** Contains general methods applicable to all patient types, ensuring consistency and reuse through inheritance.
+- **Specialized Methods:** Each patient category will have specific methods for personalized consultations.
 - **Patient Registration:** Allows registration of new patients with the following data:
   - Name
   - Age
@@ -14,7 +21,6 @@ This project aims to create a client database system for a nutritionist. The sys
   - Body Fat Percentage
   - Relevant Dates (appointments, follow-ups, etc.)
 - **Data Update:** Ability to update existing patient information.
-- **Record Deletion:** Possibility to delete patient records.
 - **Information Retrieval:** Detailed retrieval of each patient's information.
 - **Intuitive Visualization:** Clear and accessible organization and visualization of data.
 
