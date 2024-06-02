@@ -26,7 +26,7 @@ This project aims to create a client database system for a nutritionist. The sys
 ## System Requirements
 
 - **Programming Language:** C++
-- **Libraries and Dependencies:** To be defined
+- **Libraries and Dependencies:** string and cmath
 
 ## Why This Project Is Interesting
 
