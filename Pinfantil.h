@@ -1,16 +1,29 @@
-#ifndef PACIENTEINFANTIL_H_INCLUDED
-#define PACIENTEINFANTIL_H_INCLUDED
-#include "paciente.h"
+#ifndef PINFANTIL_H
+#define PINFANTIL_H
 
-class Pinfantil : public Paciente {
+#include "Paciente.h"
+#include <string>
+
+using namespace std;
+
+class Pinfantil : public Paciente
+{
+private:
+    string nombreTutor; // atributo nombre del tutor del infante
+
 public:
-      //constructor
-      Pinfantil(string nombre_paciente, char sexo_paciente, int edad_paciente, int altura_paciente, double peso_paciente, int frecuenciaentreno_paciente, int objetivo_paciente, int grasa_percent_paciente);
-      //specific infant patient methods
-      void infoPinfantil();
-      string etapaDesarrollo();
+    Pinfantil(string, char, int, int, double, string);
+
+    // metodos get-set
+    void setNombreTutor(string);
+    string getNombreTutor();
+
+    // metodos especificos de la clase infantil
+    string etapaDesarrollo();
+
+    // polimorfismo
+    int calcularCalorias() const override;
+    void datosPaciente() const override;
 };
-
-
 
 #endif
