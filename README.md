@@ -8,7 +8,7 @@ This project aims to create a client database system for a nutritionist. The sys
 
 - **Patient Classification:** Patients are categorized into four groups:
   - Athletes
-  - Adults
+  - Oncologic
   - Children
   - Overweight Patients
 - **Superclass Patient:** Contains general methods applicable to all patient types, ensuring consistency and reuse through inheritance.
