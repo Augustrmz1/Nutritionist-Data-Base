@@ -1,34 +1,98 @@
-#include "Psobrepeso.h"
+##include "Psobrepeso.h"
+#include <iostream>
+#include <string>
 
-Psobrepeso::Psobrepeso(string nombre_paciente, char sexo_paciente, int edad_paciente, int altura_paciente, double peso_paciente, int frecuenciaentreno_paciente, int objetivo_paciente, int grasa_percent_paciente) : Paciente(nombre_paciente, sexo_paciente, edad_paciente, altura_paciente, peso_paciente, frecuenciaentreno_paciente, objetivo_paciente, grasa_percent_paciente) {
-  
+using namespace std;
+// constructor
+Psobrepeso ::Psobrepeso(string _nombre, char _sexo, int _edad, int _altura, double _peso, int _nivelactividad, int _objetivo) : Paciente(_nombre, _sexo, _edad, _altura, _peso)
+{
+    nivelActividad = _nivelactividad;
+    objetivo = _objetivo;
 }
 
-double Psobrepeso::calcular_Imc() {
-    int altura_metros = altura / 100;
-    double alturaCuadrada = altura_metros * altura_metros;
-    return peso / alturaCuadrada;
-  
+// metodos get-set
+void Psobrepeso::setNivelActividad(int _nivelActividad)
+{
+    nivelActividad = _nivelActividad;
 }
 
-string Psobrepeso::evaluar_Imc() {
-  double imc = calcular_Imc();
-  if (imc < 18.5) {
-      return "Peso por debajo del promedio";
-  } else if (imc > 18.5 && imc < 24.9) {
-      return "Peso saludable";
-  } else if (imc > 25 && imc < 29.9) {
-    return "Sobrepeso";
-  } else {
-    return "Obesidad";
-  }
-  
+int Psobrepeso::getNivelActividad()
+{
+    return nivelActividad;
 }
 
+void Psobrepeso::setObjetivo(int _objetivo)
+{
+    objetivo = _objetivo;
+}
 
-//complete mettods
-void Psobrepeso::infoPsobrepeso(){
-  datos_paciente();
-  double imc = calcular_Imc();
-  cout << "IMC del paciente: " << imc <<"(" << evaluar_Imc() << ")" <<  endl;
+int Psobrepeso::getObjetivo()
+{
+    return objetivo;
+}
+
+// metodos especificos de la clase
+string Psobrepeso::objetivoString() const
+{
+    if (objetivo == 1)
+    {
+        return "Mantenimiento de peso";
+    }
+    else if (objetivo == 2)
+    {
+        return "Perdida de peso";
+    }
+    else
+    {
+        return "Objetivo no valido.";
+    }
+}
+
+string Psobrepeso::stringNivelActividad() const
+{
+    if (nivelActividad == 1)
+    {
+        return "Sedentario";
+    }
+    else if (nivelActividad == 2)
+    {
+        return "Poco activo";
+    }
+    else if (nivelActividad == 3)
+    {
+        return "Activo";
+    }
+    else
+        return "Dato ingresado no valido";
+}
+
+int Psobrepeso::calcularCalorias() const
+{
+    // Formula para pacientes con sobrepeso
+    if (sexo == 'H')
+    {
+        return 88.362 + (13.397 * peso) + (4.799 * altura) - 500;
+    }
+    else if (sexo == 'M')
+    {
+        return 447.593 + (9.247 * peso) + (3.098 * altura) - 300;
+    }
+    else
+    {
+        return 0;
+        cout << "Sexo no valido, no se continuara con el calculo." << endl;
+    }
+}
+
+void Psobrepeso::datosPaciente() const
+{
+    cout << "Datos del paciente: " << endl;
+    cout << "Nombre: " << nombre << endl;
+    cout << "Sexo: " << sexo << endl;
+    cout << "Edad: " << edad << " anio(s)" << endl;
+    cout << "Peso: " << peso << " kg" << endl;
+    cout << "Altura: " << altura << " cm" << endl;
+    cout << "Objetivo: " << objetivoString() << endl;
+    cout << "Nivel de actividad: " << stringNivelActividad() << endl;
+    cout << "Consumo calorico recomendado: " << calcularCalorias() << " kcal" << endl;
 }
