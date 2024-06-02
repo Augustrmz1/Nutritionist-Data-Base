@@ -1,51 +1,41 @@
-#ifndef PACIENTE_H_INCLUDED
-#define PACIENTE_H_INCLUDED
-
+#ifndef PACIENTE_H
+#define PACIENTE_H
 #include <string>
 using namespace std;
 
-// defino la clase paciente
 class Paciente
 {
-protected: // archivos protegidos que seran heredados a el resto de clases
+protected: // datos protegidos del paciente
+    string nombre;
     char sexo;
     int edad;
     int altura;
     double peso;
-    int objetivo;
-    int grasa_percent;
-
-private:
-    string nombre; // el nombre no es necesario para los calculos en otras clases
 
 public:
-    // definicion de los atributos publicos
+    Paciente();                               // constructor por defecto
+    Paciente(string, char, int, int, double); // constructor parametrizado
+    Paciente(string);                         // constructor con sobrecarga
 
-    // constructor
-    Paciente(string nombre_paciente, char sexo_paciente, int edad_paciente, int altura_paciente, double peso_paciente, int objetivo_paciente, int grasa_percent_paciente);
-
-    // setters
-    void setNombre(string nombre_paciente);
-    void setSexo(char sexo_paciente);
-    void setEdad(int edad_paciente);
-    void setAltura(int altura_paciente);
-    void setPeso(double peso_paciente);
-    void setObjetivo(int objetivo_paciente);
-    void setGrasaPercent(int grasa_percent_paciente);
-
-    // getters
+    // metodos get-set
+    void setNombre(string);
     string getNombre();
-    char getSexo();
-    int getEdad();
-    int getAltura();
-    double getPeso();
-    int getObjetivo();
-    int getGrasaPercent();
 
-    // metodos
-    string sexo_completo();
-    string string_objetivo();
-    void datos_paciente();
-    int calcular_calorias();
+    void setSexo(char);
+    char getSexo();
+
+    void setEdad(int);
+    int getEdad();
+
+    void setAltura(int);
+    int getAltura();
+
+    void setPeso(double);
+    double getPeso();
+
+    // funciones de polimorfismo y que convierten paciente en una clase abstracta
+    virtual int calcularCalorias() const = 0;
+    virtual void datosPaciente() const = 0; // metodo virtual puro
 };
+
 #endif
