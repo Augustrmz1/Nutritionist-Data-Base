@@ -11,7 +11,7 @@ This project aims to create a client database system for a nutritionist. The sys
   - Oncologic
   - Children
   - Overweight Patients
-- **Superclass Patient:** Contains general methods applicable to all patient types, ensuring consistency and reuse through inheritance.
+- **Super and abstract Patient class:** Contains general methods applicable to all patient types, ensuring consistency and reuse through inheritance.
 - **Specialized Methods:** Each patient category will have specific methods for personalized consultations.
 - **Patient Registration:** Allows registration of new patients with the following data:
   - Name
