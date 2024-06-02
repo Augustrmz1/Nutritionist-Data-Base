@@ -1,36 +1,52 @@
 #include "Patleta.h"
+#include <iostream>
+#include <string>
 
-
-Patleta::Patleta(string nombre_paciente, char sexo_paciente, int edad_paciente, int altura_paciente, double peso_paciente,int frecuenciaentreno_paciente, int objetivo_paciente, int grasa_percent_paciente, string deporte_paciente, int nivel_paciente): Paciente(nombre_paciente, sexo_paciente, edad_paciente, altura_paciente,peso_paciente,frecuenciaentreno_paciente,objetivo_paciente,grasa_percent_paciente){
-        deporte = deporte_paciente;
-        nivel = nivel_paciente;
+using namespace std;
+// cosntructor
+Patleta::Patleta(string _nombre, char _sexo, int _edad, int _altura, double _peso, string _deporte) : Paciente(_nombre, _sexo, _edad, _altura, _peso)
+{
+    deporte = _deporte;
 }
 
-//complete setters
-void Patleta::setDeporte(string deporte_paciente){
-  deporte = deporte_paciente;
+// metodos get-set
+void Patleta::setDeporte(string _deporte)
+{
+    deporte = _deporte;
 }
 
-void Patleta::setNivel(int nivel_paciente){
-  nivel = nivel_paciente;
+string Patleta::getDeporte()
+{
+    return deporte;
 }
 
-//complete getters
-string Patleta::getDeporte(){
-  return deporte;
+// metodo calcular calorias para atletas polimorfismo
+int Patleta::calcularCalorias() const
+{
+    // Formula para atletas
+    if (sexo == 'H')
+    {
+        return 88.362 + (13.397 * peso) + (4.799 * altura) + 500;
+    }
+    else if (sexo == 'M')
+    {
+        return 447.593 + (9.247 * peso) + (3.098 * altura) + 300;
+    }
+    else
+    {
+        return 0;
+        cout << "Sexo no valido, no se continuara con el calculo." << endl;
+    }
 }
-
-int Patleta::getNivel(){
-  return nivel;
+// metodo virtual puro
+void Patleta::datosPaciente() const
+{
+    cout << "Datos del paciente: " << endl;
+    cout << "Nombre: " << nombre << endl;
+    cout << "Sexo: " << sexo << endl;
+    cout << "Edad: " << edad << " anio(s)" << endl;
+    cout << "Peso: " << peso << " kg" << endl;
+    cout << "Altura: " << altura << " cm" << endl;
+    cout << "Deporte practicado: " << deporte << endl;
+    cout << "Consumo calorico recomendado: " << calcularCalorias() << " kcal" << endl;
 }
-
-void Patleta::infoAtleta(){
-  datos_paciente();
-  cout<< "Deporte practicado: " << deporte << endl;
-  cout << "Nivel de experiencia: " << nivel << endl;
-}
-
-string str_nivelDeporte(){
-
-  }
-
