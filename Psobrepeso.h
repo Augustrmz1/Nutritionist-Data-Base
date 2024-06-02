@@ -1,17 +1,32 @@
-#ifndef  PSOBREPESO_H_INCLUDED
-#define  PSOBREPESO_H_INCLUDED
-#include "paciente.h"
+#ifndef PSOBREPESO_H
+#define PSOBREPESO_H
+#include "Paciente.h"
+#include <string>
 
-class Psobrepeso : public Paciente {
+using namespace std;
+
+class Psobrepeso : public Paciente
+{
+private:
+    int nivelActividad;
+    int objetivo;
+
 public:
-    //constructor
-    Psobrepeso(string nombre_paciente, char sexo_paciente, int edad_paciente, int altura_paciente, double peso_paciente, int frecuenciaentreno_paciente, int objetivo_paciente, int grasa_percent_paciente);
+    // constructor
+    Psobrepeso(string, char, int, int, double, int, int);
+    // metodos get-set
+    void setNivelActividad(int);
+    int getNivelActividad();
 
-    //specific overweith patient methods
-    void infoPsobrepeso();
-    double calcular_Imc();
-    string evaluar_Imc();
+    void setObjetivo(int);
+    int getObjetivo();
+
+    // metodos especificos de la clase
+    string objetivoString() const;
+    string stringNivelActividad() const;
+
+    // metodos de polimorfismo y de la clase abstracta
+    int calcularCalorias() const override;
+    void datosPaciente() const override;
 };
-
-
 #endif
