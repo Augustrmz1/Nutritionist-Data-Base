@@ -16,10 +16,9 @@ This project aims to create a client database system for a nutritionist. The sys
 - **Patient Registration:** Allows registration of new patients with the following data:
   - Name
   - Age
+  - Gender
   - Weight
   - Height
-  - Body Fat Percentage
-  - Relevant Dates (appointments, follow-ups, etc.)
 - **Data Update:** Ability to update existing patient information.
 - **Information Retrieval:** Detailed retrieval of each patient's information.
 - **Intuitive Visualization:** Clear and accessible organization and visualization of data.
