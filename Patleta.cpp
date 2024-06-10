@@ -1,4 +1,5 @@
 #include "Patleta.h"
+#include <sstream>
 #include <iostream>
 #include <string>
 
@@ -26,11 +27,11 @@ int Patleta::calcularCalorias() const
     // Formula para atletas
     if (sexo == 'H')
     {
-        return 88.362 + (13.397 * peso) + (4.799 * altura) + 500;
+        return 88.362 + (13.397 * peso) + (4.799 * altura);
     }
     else if (sexo == 'M')
     {
-        return 447.593 + (9.247 * peso) + (3.098 * altura) + 300;
+        return 447.593 + (9.247 * peso) + (3.098 * altura);
     }
     else
     {
@@ -38,15 +39,26 @@ int Patleta::calcularCalorias() const
         cout << "Sexo no valido, no se continuara con el calculo." << endl;
     }
 }
+// implementacion del metodo sobrecargado
+int Patleta::calcularCalorias(int frecuenciaEntreno) const
+{
+    int caloriasBase = 88.362 + (13.397 * peso) + (4.799 * altura);
+    int caloriasExtra = frecuenciaEntreno * 100;
+    return caloriasBase + caloriasExtra;
+}
+
 // metodo virtual puro
 void Patleta::datosPaciente() const
 {
     cout << "Datos del paciente: " << endl;
+    cout << "Tipo: Paciente atleta" << endl;
     cout << "Nombre: " << nombre << endl;
     cout << "Sexo: " << sexo << endl;
     cout << "Edad: " << edad << " anio(s)" << endl;
     cout << "Peso: " << peso << " kg" << endl;
     cout << "Altura: " << altura << " cm" << endl;
     cout << "Deporte practicado: " << deporte << endl;
-    cout << "Consumo calorico recomendado: " << calcularCalorias() << " kcal" << endl;
+    cout << "Consumo calorico recomendado para definicion muscular: " << calcularCalorias() << " kcal" << endl;
+    cout << "Consumo calorico reconmendado para aumento de masa muscular: " << calcularCalorias(5) << "kcal" << endl;
+    cout << endl;
 }
