@@ -1,27 +1,75 @@
 # Client Database System for Nutritionist
 
-## Project Description
+# Nutritional Clinic - Database
 
-This project aims to create a client database system for a nutritionist. The system will manage a database of 20 patients classified into the following categories: athletes, adults, children, and overweight patients. Each category will have specific methods tailored for more personalized consultations. A superclass, Patient, will contain general methods that will serve as the base for all subclasses through inheritance and polymorphism. This tool will help the nutritionist maintain a detailed and organized record of their patients, facilitating the tracking of progress and decision-making based on data.
+This C++ program is a database for a nutritional clinic that manages the information of 20 patients. To access the database, users must have an employee account. The database allows viewing previously conducted consultations and provides general information about the patients such as name, sex, age, height in cm, and weight.
 
-## Features
+## Program Structure
 
-- **Patient Classification:** Patients are categorized into four groups:
-  - Athletes
-  - Oncologic
-  - Children
-  - Overweight Patients
-- **Super and abstract Patient class:** Contains general methods applicable to all patient types, ensuring consistency and reuse through inheritance.
-- **Specialized Methods:** Each patient category will have specific methods for personalized consultations.
-- **Patient Registration:** Allows registration of new patients with the following data:
-  - Name
-  - Age
-  - Gender
-  - Weight
-  - Height
-- **Data Update:** Ability to update existing patient information.
-- **Information Retrieval:** Detailed retrieval of each patient's information.
-- **Intuitive Visualization:** Clear and accessible organization and visualization of data.
+The program is composed of an abstract superclass `Patient` and four subclasses that categorize the patients into:
+
+1. **Athletes**
+2. **Children**
+3. **Oncological**
+4. **Overweight Patients**
+
+### Features
+
+- **Login:**
+  - Employees must log in to access the database.
+
+- **Interactive Menu:**
+  - Once logged in, the user can choose which sub-database to consult (Athletes, Children, Oncological, or Overweight Patients).
+
+- **Specific Queries:**
+  - Upon selecting a sub-database, a list of 5 registered patients is displayed with specific information depending on the type of patient:
+    - **Athletes:** Practiced sport and calorie count adjustment.
+    - **Children:** Tutor's name and development stage.
+    - **Oncological:** Type of cancer, cancer stage, current treatment, and evaluator of possible future complications.
+    - **Overweight Patients:** Calorie calculation, BMI calculation, and weight loss goal definition.
+
+## Classes and Structures
+
+### Abstract Class `Patient`
+Defines properties and methods common to all patients:
+- `name`
+- `sex`
+- `age`
+- `height`
+- `weight`
+- Virtual methods to be implemented in subclasses.
+
+### Subclasses
+#### Athletes
+- Practiced sport
+- Calorie count adjustment
+
+#### Children
+- Tutor's name
+- Development stage
+
+#### Oncological
+- Type of cancer
+- Cancer stage
+- Current treatment
+- Evaluator of possible complications
+
+#### Overweight Patients
+- Calorie calculation
+- BMI calculation
+- Weight loss goal
+
+## Program Usage
+
+1. **Log In:**
+   - Enter your employee credentials to access the system.
+
+2. **Select Sub-Database:**
+   - Choose between Athletes, Children, Oncological, or Overweight Patients.
+
+3. **Consult Information:**
+   - Review the list of patients and their specific information.
+
 
 ## System Requirements
 
