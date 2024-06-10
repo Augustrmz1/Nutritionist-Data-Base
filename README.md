@@ -47,3 +47,6 @@ The initial scope of the project includes basic patient data management, but the
 
 **Positive Social Impact:**
 By providing a tool that helps nutritionists offer better care, this project has the potential to positively impact the broader community. Improved health tracking and management can lead to better overall health outcomes, contributing to the well-being of individuals and communities. This social impact adds an extra layer of significance to the project.
+![image](https://github.com/Augustrmz1/Nutritionist-Data-Base/assets/170146597/6fb270ae-3a27-4540-b02d-690032ec7600)
+
+
