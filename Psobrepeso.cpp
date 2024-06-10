@@ -1,13 +1,14 @@
-##include "Psobrepeso.h"
+#include "Psobrepeso.h"
 #include <iostream>
+#include <cmath>
 #include <string>
+#include <sstream>
 
 using namespace std;
 // constructor
-Psobrepeso ::Psobrepeso(string _nombre, char _sexo, int _edad, int _altura, double _peso, int _nivelactividad, int _objetivo) : Paciente(_nombre, _sexo, _edad, _altura, _peso)
+Psobrepeso ::Psobrepeso(string _nombre, char _sexo, int _edad, int _altura, double _peso, int _nivelactividad) : Paciente(_nombre, _sexo, _edad, _altura, _peso)
 {
     nivelActividad = _nivelactividad;
-    objetivo = _objetivo;
 }
 
 // metodos get-set
@@ -21,26 +22,39 @@ int Psobrepeso::getNivelActividad()
     return nivelActividad;
 }
 
-void Psobrepeso::setObjetivo(int _objetivo)
-{
-    objetivo = _objetivo;
-}
-
-int Psobrepeso::getObjetivo()
-{
-    return objetivo;
-}
-
 // metodos especificos de la clase
+double Psobrepeso::calcularIMC() const
+{
+    float altura_metros = altura / 100.0;
+    double IMC = peso / pow(altura_metros, 2);
+    return IMC;
+}
+
+int Psobrepeso::definirObjetivo() const
+{
+    if (calcularIMC() >= 25 && calcularIMC() <= 29.9)
+    {
+        return 1;
+    }
+    else if (calcularIMC() > 29.9)
+    {
+        return 2;
+    }
+    else
+    {
+        return 0;
+        cout << "El paciente no pertenece a la categoria sobrepeso." << endl;
+    }
+}
 string Psobrepeso::objetivoString() const
 {
-    if (objetivo == 1)
+    if (definirObjetivo() == 1)
     {
-        return "Mantenimiento de peso";
+        return "Perdida de peso moderada.";
     }
-    else if (objetivo == 2)
+    else if (definirObjetivo() == 2)
     {
-        return "Perdida de peso";
+        return "Perdida de peso agresiva.";
     }
     else
     {
@@ -86,13 +100,17 @@ int Psobrepeso::calcularCalorias() const
 
 void Psobrepeso::datosPaciente() const
 {
+
     cout << "Datos del paciente: " << endl;
+    cout << "Iipo: " << " Paciente con sobre peso" << endl;
     cout << "Nombre: " << nombre << endl;
     cout << "Sexo: " << sexo << endl;
     cout << "Edad: " << edad << " anio(s)" << endl;
     cout << "Peso: " << peso << " kg" << endl;
     cout << "Altura: " << altura << " cm" << endl;
-    cout << "Objetivo: " << objetivoString() << endl;
-    cout << "Nivel de actividad: " << stringNivelActividad() << endl;
+    cout << "Nivel de actividad: " << nivelActividad << endl;
+    cout << "IMC: " << calcularIMC() << endl;
+    cout << "Objetivo requerido: " << objetivoString() << endl;
     cout << "Consumo calorico recomendado: " << calcularCalorias() << " kcal" << endl;
+    cout << endl;
 }
