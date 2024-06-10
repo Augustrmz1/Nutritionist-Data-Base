@@ -19,7 +19,7 @@ public:
     string getNombreTutor();
 
     // metodos especificos de la clase infantil
-    string etapaDesarrollo();
+    string etapaDesarrollo() const;
 
     // polimorfismo
     int calcularCalorias() const override;
