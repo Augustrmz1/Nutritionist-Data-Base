@@ -1,4 +1,5 @@
 #include "Poncologico.h"
+#include <sstream>
 #include <iostream>
 #include <string>
 
@@ -65,11 +66,11 @@ int Poncologico::calcularCalorias() const
 {
     if (sexo == 'H')
     {
-        return 88.362 + (13.397 * peso) + (4.799 * altura);
+        return 88.362 + (13.397 * peso) + (4.799 * altura) + 300;
     }
     else if (sexo == 'M')
     {
-        return 447.593 + (9.247 * peso) + (3.098 * altura);
+        return 447.593 + (9.247 * peso) + (3.098 * altura) + 200;
     }
     else
     {
@@ -82,6 +83,7 @@ int Poncologico::calcularCalorias() const
 void Poncologico::datosPaciente() const
 {
     cout << "Datos del paciente: " << endl;
+    cout << "Iipo: " << " Paciente oncologico" << endl;
     cout << "Nombre: " << nombre << endl;
     cout << "Sexo: " << sexo << endl;
     cout << "Edad: " << edad << " anio(s)" << endl;
@@ -92,4 +94,5 @@ void Poncologico::datosPaciente() const
     cout << "Tratamiento actual: " << tratamiento << endl;
     cout << "Riesgo de complicaciones: " << riesgoComplicaciones() << endl;
     cout << "Consumo calorico recomendado: " << calcularCalorias() << " kcal" << endl;
+    cout << endl;
 }
