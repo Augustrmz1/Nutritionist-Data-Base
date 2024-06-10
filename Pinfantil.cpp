@@ -1,4 +1,5 @@
 #include "Pinfantil.h"
+#include <sstream>
 #include <iostream>
 #include <string>
 
@@ -21,7 +22,7 @@ string Pinfantil::getNombreTutor()
 }
 
 // metodo especifico de la clase infantil
-string Pinfantil::etapaDesarrollo()
+string Pinfantil::etapaDesarrollo() const
 {
     if (edad >= 0 && edad <= 2)
     {
@@ -73,6 +74,7 @@ int Pinfantil::calcularCalorias() const
 void Pinfantil::datosPaciente() const
 {
     cout << "Datos del paciente: " << endl;
+    cout << "Tipo:" << " Paciente infantil" << endl;
     cout << "Nombre: " << nombre << endl;
     cout << "Nombre del tutor: " << nombreTutor << endl;
     cout << "Sexo: " << sexo << endl;
@@ -80,4 +82,6 @@ void Pinfantil::datosPaciente() const
     cout << "Peso: " << peso << " kg" << endl;
     cout << "Altura: " << altura << " cm" << endl;
     cout << "Consumo calorico recomendado: " << calcularCalorias() << " kcal" << endl;
+    cout << "Etapa de desarrollo: " << etapaDesarrollo() << endl;
+    cout << endl;
 }
