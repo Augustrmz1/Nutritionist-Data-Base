@@ -8,15 +8,16 @@ using namespace std;
 class Patleta : public Paciente
 {
 private:
-    string deporte;
+    string deporte; // atributos
 
 public:
-    Patleta(string, char, int, int, double, string);
+    Patleta(string, char, int, int, double, string); // constructor
 
-    void setDeporte(string);
+    void setDeporte(string); // getters-setters
     string getDeporte();
 
     int calcularCalorias() const override;
+    int calcularCalorias(int frecuenciaEntreno) const; // metodo sobrecargado
     void datosPaciente() const override;
 };
 
